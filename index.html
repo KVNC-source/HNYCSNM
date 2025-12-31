@@ -14,11 +14,27 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <audio id="bg-music">
+      <source src="ABBA - Super Trouper.mp3" type="audio/mpeg" />
+    </audio>
+
     <div class="envelope-container" id="envelope">
-      <div class="wax-seal" onclick="openLetter()">
+      <div class="wax-seal" onclick="startIntro()">
         <span>CSNM</span>
       </div>
       <p class="seal-hint">Break The Seal</p>
+    </div>
+
+    <div id="lyrics-slideshow" class="slideshow-container">
+      <div class="slide" data-time="2000">
+        Super Trouper beams are gonna blind me
+      </div>
+      <div class="slide" data-time="5500">But I won't feel blue</div>
+      <div class="slide" data-time="10000">Like I always do</div>
+      <div class="slide" data-time="13500">
+        'Cause somewhere in the crowd...
+      </div>
+      <div class="slide" data-time="15200">There's You.</div>
     </div>
 
     <div class="letter shine-effect" id="letter">
@@ -37,31 +53,31 @@
         words for you. Happy New Year, Clarissa. Let's be real, neither of us
         expected to become this close within a single year, especially since I
         thought I'd go through 2025 feeling gloomy and empty until you appeared
-        and made everything so much more colorful. It all began when you asked
-        me to be an asdos, which stands as one of the best decisions I've made
-        all year, as it was the domino that really made us gradually grow
-        closer. I started getting to know the real you during those car rides in
-        Gaby's car (bless her soul) and things only became more interesting once
-        you started asking for my opinions on... his stupidity. I am very
-        grateful to have you as someone I can trust with my life, you've really
-        given me something that I am actually very scared of losing. Thank you
-        for always being there and for every single thing you've done to make me
-        feel genuinely seen and cared for. I wish to dedicate everything I can
-        to making you just as happy, because seeing your smile is truly the most
-        amazing thing in the world. Hopefully, through these next years, I won't
-        lose you or a single member of APU, because I genuinely don't know what
-        I'd do without this circle. As we move into 2026, I wish you nothing but
-        health, care, and a lifetime of laughs, and I pray you always remain
-        true to yourself with the unwavering strength to overcome any obstacle,
-        because I know you can prevail through anything. I wish you a level of
-        happiness you've never experienced before and that every one of your
-        dreams and aspirations is realized in the near future. I am so deeply
-        proud of everything you've achieved this year Ica, well done getting
-        through 2025. May God bless you abundantly in this new year and grant
-        you every victory you deserve. Here's to more notes, yaps, laughs,
-        smiles, and lilies with you this year. Happy New Year, my dear smart
-        Star, shine everywhere you go, and never forget how amazing you truly
-        are.
+        unexpectedly and made everything so much more colorful. It all began
+        when you asked me to be an asdos, which stands as one of the best
+        decisions I've made all year, as it was the domino that really made us
+        gradually grow closer. I started getting to know the real you during
+        those car rides in Gaby's car (bless her soul) and things only became
+        more interesting once you started asking for my opinions on... his
+        stupidity. I am very grateful to have you as someone I can trust with my
+        life, you've really given me something that I am actually very scared of
+        losing. Thank you for always being there and for every single thing
+        you've done to make me feel genuinely seen and cared for. I wish to
+        dedicate everything I can to making you just as happy, because seeing
+        your smile is truly the most amazing thing in the world. Hopefully,
+        through these next years, I won't lose you or a single member of APU,
+        because I genuinely don't know what I'd do without this circle. As we
+        move into 2026, I wish you nothing but health, care, and a lifetime of
+        laughs, and I pray you always remain true to yourself with the
+        unwavering strength to overcome any obstacle, because I know you can
+        prevail through anything. I wish you a level of happiness you've never
+        experienced before and that every one of your dreams and aspirations is
+        realized in the near future. I am so deeply proud of everything you've
+        achieved this year Ica, well done getting through 2025. May God bless
+        you abundantly in this new year and grant you every victory you deserve.
+        Here's to more notes, yaps, laughs, smiles, and lilies with you this
+        year. Happy New Year, my dear smart Star, shine everywhere you go, and
+        never forget how amazing you truly are.
         <p class="special-note">
           "You are the rarest kind of soul, and You matter to me more than
           You'll ever fully realize. As we step into 2026, know that my loyalty
@@ -76,23 +92,129 @@
           Yours Faithfully, <br />
           Keefa N. Lasut
         </div>
+
+        <div class="close-section">
+          <button class="royal-button" onclick="rollUpAndShowVideo()">
+            CLOSE NOTE
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="video-experience" class="video-screen">
+      <div class="video-frame">
+        <video id="her-video" playsinline>
+          <source
+            src="WhatsApp Video 2025-12-23 at 11.41.28 AM.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <h2 class="video-message">
+          Thank You for being my favorite person this year
+        </h2>
       </div>
     </div>
 
     <script>
-      function openLetter() {
+      function startIntro() {
         const envelope = document.getElementById("envelope");
-        const letter = document.getElementById("letter");
+        const slideshow = document.getElementById("lyrics-slideshow");
+        const music = document.getElementById("bg-music");
+        const slides = document.querySelectorAll(".slide");
+
+        music.volume = 1;
+        music.currentTime = 2;
+        music.play();
 
         envelope.style.opacity = "0";
         setTimeout(() => {
           envelope.style.display = "none";
-          letter.style.display = "block";
+          slideshow.style.display = "flex";
+          slideshow.style.opacity = "1";
+
+          slides.forEach((slide, index) => {
+            const timeTrigger =
+              parseInt(slide.getAttribute("data-time")) - 2000;
+            setTimeout(() => {
+              if (index > 0) slides[index - 1].classList.remove("active");
+              slide.classList.add("active");
+            }, timeTrigger);
+          });
+
           setTimeout(() => {
-            letter.classList.add("reveal");
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }, 100);
+            slideshow.style.opacity = "0";
+            setTimeout(() => {
+              slideshow.style.display = "none";
+              slides[slides.length - 1].classList.remove("active");
+              revealFinalLetter();
+            }, 1000);
+          }, 15500);
         }, 800);
+      }
+
+      function revealFinalLetter() {
+        const letter = document.getElementById("letter");
+        letter.classList.remove("rollup");
+        letter.style.display = "block";
+        setTimeout(() => {
+          letter.classList.add("reveal");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 100);
+      }
+
+      function rollUpAndShowVideo() {
+        const letter = document.getElementById("letter");
+        const videoScreen = document.getElementById("video-experience");
+        const video = document.getElementById("her-video");
+        const music = document.getElementById("bg-music");
+
+        letter.classList.add("rollup");
+
+        let fadeAudio = setInterval(() => {
+          if (music.volume > 0.1) {
+            music.volume -= 0.1;
+          } else {
+            music.pause();
+            clearInterval(fadeAudio);
+          }
+        }, 100);
+
+        setTimeout(() => {
+          letter.style.display = "none";
+          letter.classList.remove("reveal");
+          videoScreen.style.display = "flex";
+          setTimeout(() => {
+            videoScreen.style.opacity = "1";
+            video.play();
+
+            const checkVideoTime = setInterval(() => {
+              if (video.duration - video.currentTime <= 2) {
+                resetToStart();
+                clearInterval(checkVideoTime);
+              }
+            }, 500);
+          }, 100);
+        }, 1500);
+      }
+
+      function resetToStart() {
+        const videoScreen = document.getElementById("video-experience");
+        const envelope = document.getElementById("envelope");
+        const video = document.getElementById("her-video");
+
+        videoScreen.classList.add("fade-out-reset");
+
+        setTimeout(() => {
+          video.pause();
+          video.currentTime = 0;
+          videoScreen.style.display = "none";
+          videoScreen.classList.remove("fade-out-reset");
+          videoScreen.style.opacity = "0";
+          envelope.style.display = "flex";
+          setTimeout(() => {
+            envelope.style.opacity = "1";
+          }, 100);
+        }, 2000);
       }
     </script>
   </body>
