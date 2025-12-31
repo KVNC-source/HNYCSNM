@@ -29,23 +29,25 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 30; /* Higher z-index for initial state */
+  z-index: 30;
   transition: opacity 0.8s ease-in-out;
 }
 
 .wax-seal {
-  width: 100px;
-  height: 100px;
+  width: 120px; /* Adjusted for larger Lily */
+  height: 120px;
   background: #a31616;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 0, 0, 0.4);
-  border: 2px solid var(--gold-accent);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7), inset 0 0 25px rgba(0, 0, 0, 0.6);
+  border: 3px solid var(--gold-accent);
   animation: float 3s infinite ease-in-out;
   transition: transform 0.3s;
+  z-index: 35;
+  overflow: hidden;
 }
 
 .wax-seal:hover {
@@ -62,19 +64,23 @@ body {
   }
 }
 
-.wax-seal span {
-  font-family: "Cinzel", serif;
+/* 3. Lily Crest - Optimized for Maximum Impact */
+.lily-crest {
+  font-size: 5.5rem; /* Massive Lily */
   color: var(--gold-accent);
-  font-weight: bold;
-  font-size: 1.1rem;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+  display: block;
+  user-select: none;
+  line-height: 0; /* Centers font glyph perfectly */
+  transform: translateY(-4px); /* Optical alignment shift */
 }
 
 .seal-hint {
-  margin-top: 25px;
+  margin-top: 35px;
   font-family: "Cinzel", serif;
   color: var(--gold-accent);
-  letter-spacing: 3px;
-  font-size: 0.9rem;
+  letter-spacing: 5px;
+  font-size: 0.95rem;
   text-transform: uppercase;
   animation: breathe 2s infinite ease-in-out;
 }
@@ -89,7 +95,7 @@ body {
   }
 }
 
-/* 3. Cinematic Lyrics Slideshow */
+/* 4. Cinematic Lyrics Slideshow */
 .slideshow-container {
   display: none;
   position: fixed;
@@ -113,7 +119,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 5px;
   opacity: 0;
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out; /* Snappy transition */
   padding: 0 30px;
   width: 100%;
   box-sizing: border-box;
@@ -123,7 +129,7 @@ body {
   opacity: 1;
 }
 
-/* 4. The Main Letter */
+/* 5. The Main Letter */
 .letter {
   display: none;
   max-width: 750px;
@@ -141,7 +147,7 @@ body {
   position: relative;
   overflow: hidden;
   z-index: 10;
-  box-sizing: border-box; /* Crucial for padding */
+  box-sizing: border-box;
 }
 
 .letter.reveal {
@@ -150,7 +156,6 @@ body {
   transform: translateY(0) rotateX(0deg) scale(1);
 }
 
-/* Gold Sweep Effect */
 .shine-effect::after {
   content: "";
   position: absolute;
@@ -182,7 +187,7 @@ body {
   }
 }
 
-/* 5. Interior Decoration & Content Flow */
+/* 6. Content Decoration */
 .letter-header {
   text-align: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -213,23 +218,22 @@ body {
   font-size: 2.2rem;
   color: #5e0b0b;
   margin-bottom: 30px;
-  text-align: left; /* Changed from center/right to left */
-  padding-left: 5px; /* Optional: adds a tiny bit of breathing room from the edge */
+  text-align: left; /* Aligned Left */
 }
 
 .content {
-  line-height: 1.8; /* Slightly tighter line height for smaller text */
-  font-size: 1rem; /* Reduced from 1.1rem to 1rem for a cleaner look */
+  line-height: 1.8;
+  font-size: 1rem; /* Elegant smaller font */
   text-align: justify;
   margin: 0 auto;
   max-width: 600px;
-  white-space: normal;
+  white-space: normal; /* Fixes "separated" text issues */
   hyphens: auto;
 }
 
 .special-note {
   margin-top: 35px;
-  font-size: 0.95rem; /* Scaled down slightly to match body text */
+  font-size: 0.95rem;
   font-style: italic;
   font-weight: 600;
   color: #4a0404;
@@ -243,18 +247,18 @@ body {
   padding-top: 20px;
 }
 
+/* Flourish Icons Fixed for Mobile */
 .flourish {
   text-align: center;
   color: var(--gold-accent);
   margin-bottom: 15px;
-
-  /* Forces the browser to treat them as plain text, not emojis */
   font-family: "Times New Roman", serif;
-  font-size: 24px; /* Use a fixed px size instead of rem for mobile */
-  line-height: 1; /* Prevents uneven vertical spacing */
-  display: inline-block; /* Helps with alignment */
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 12px;
+  display: block;
   width: 100%;
-  letter-spacing: 10px; /* Adds even gaps between them */
+  -webkit-text-fill-color: var(--gold-accent);
 }
 
 .signature {
@@ -263,7 +267,7 @@ body {
   text-align: right;
 }
 
-/* 6. Animations & Video Experience */
+/* 7. Roll-up & Video */
 .letter.rollup {
   transform: scaleY(0) translateY(-100%);
   opacity: 0;
@@ -340,11 +344,11 @@ video {
   transition: opacity 2s ease-in-out;
 }
 
-/* 7. Mobile Optimization */
+/* 8. Mobile Optimization */
 @media (max-width: 600px) {
   body {
     align-items: flex-start;
-    background: var(--parchment); /* No gaps on scroll */
+    background: var(--parchment);
   }
 
   .letter {
@@ -358,7 +362,7 @@ video {
   }
 
   .content {
-    text-align: left; /* Justified looks bad on narrow phones */
+    text-align: left; /* Better flow on mobile */
     padding: 0 5px;
   }
 
