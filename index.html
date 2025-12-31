@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>A Proclamation of Esteem: Clarissa Sheryl Natascha Maramis</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Pinyon+Script&family=Lora:ital,wght@0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="envelope-container" id="envelope">
+      <div class="wax-seal" onclick="openLetter()">
+        <span>CSNM</span>
+      </div>
+      <p class="seal-hint">Break The Seal</p>
+    </div>
+
+    <div class="letter shine-effect" id="letter">
+      <div class="letter-header">
+        <div class="royal-emblem">⚜</div>
+        <h1>A PROCLAMATION OF ESTEEM</h1>
+        <p>A Year That Our Lord Has Made Two Thousand and Twenty-Six</p>
+      </div>
+
+      <div class="recipient">Dearest Clarissa Sheryl Natascha Maramis,</div>
+
+      <div class="content">
+        Honestly, I didn't expect to be writing for anyone this year, but within
+        these last few months, you've shown me how incredibly valuable our
+        friendship is, so much so that I simply had to put these feelings into
+        words for you. Happy New Year, Clarissa. Let's be real, neither of us
+        expected to become this close within a single year, especially since I
+        thought I'd go through 2025 feeling gloomy and empty until you appeared
+        and made everything so much more colorful. It all began when you asked
+        me to be an asdos, which stands as one of the best decisions I've made
+        all year, as it was the domino that really made us gradually grow
+        closer. I started getting to know the real you during those car rides in
+        Gaby's car (bless her soul) and things only became more interesting once
+        you started asking for my opinions on... his stupidity. I am very
+        grateful to have you as someone I can trust with my life, you've really
+        given me something that I am actually very scared of losing. Thank you
+        for always being there and for every single thing you've done to make me
+        feel genuinely seen and cared for. I wish to dedicate everything I can
+        to making you just as happy, because seeing your smile is truly the most
+        amazing thing in the world. Hopefully, through these next years, I won't
+        lose you or a single member of APU, because I genuinely don't know what
+        I'd do without this circle. As we move into 2026, I wish you nothing but
+        health, care, and a lifetime of laughs, and I pray you always remain
+        true to yourself with the unwavering strength to overcome any obstacle,
+        because I know you can prevail through anything. I wish you a level of
+        happiness you've never experienced before and that every one of your
+        dreams and aspirations is realized in the near future. I am so deeply
+        proud of everything you've achieved this year Ica, well done getting
+        through 2025. May God bless you abundantly in this new year and grant
+        you every victory you deserve. Here's to more notes, yaps, laughs,
+        smiles, and lilies with you this year. Happy New Year, my dear smart
+        Star, shine everywhere you go, and never forget how amazing you truly
+        are.
+        <p class="special-note">
+          "You are the rarest kind of soul, and You matter to me more than
+          You'll ever fully realize. As we step into 2026, know that my loyalty
+          to You is absolute. I'll always be by Your side, through every storm
+          and every victory, today and every day after."
+        </p>
+      </div>
+
+      <div class="letter-footer">
+        <div class="flourish">❧ ❦ ☙</div>
+        <div class="signature">
+          Yours Faithfully, <br />
+          Keefa N. Lasut
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openLetter() {
+        const envelope = document.getElementById("envelope");
+        const letter = document.getElementById("letter");
+
+        envelope.style.opacity = "0";
+        setTimeout(() => {
+          envelope.style.display = "none";
+          letter.style.display = "block";
+          setTimeout(() => {
+            letter.classList.add("reveal");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }, 100);
+        }, 800);
+      }
+    </script>
+  </body>
+</html>
