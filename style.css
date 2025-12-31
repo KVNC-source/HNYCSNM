@@ -246,8 +246,15 @@ body {
 .flourish {
   text-align: center;
   color: var(--gold-accent);
-  font-size: 1.5rem;
   margin-bottom: 15px;
+
+  /* Forces the browser to treat them as plain text, not emojis */
+  font-family: "Times New Roman", serif;
+  font-size: 24px; /* Use a fixed px size instead of rem for mobile */
+  line-height: 1; /* Prevents uneven vertical spacing */
+  display: inline-block; /* Helps with alignment */
+  width: 100%;
+  letter-spacing: 10px; /* Adds even gaps between them */
 }
 
 .signature {
